@@ -5,17 +5,21 @@ import NavBar from './components/layout/NavBar';
 import Dashboard from './components/dashboard/Dashboard';
 import ViewProject from './components/project/ViewProject';
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import CreateProject from './components/project/CreateProject';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-          <NavBar />
+          <NavBar style={{ marginBottom: '50px'}}/>
           <Switch>
             <Route exact path='/' component={ Dashboard }></Route>
-            <Route path='/project/:id' component={ ViewProject }></Route>
+            <Route exact path='/project/:id' component={ ViewProject }></Route>
             <Route path='/signin' component={ SignIn }></Route>
+            <Route path='/signup' component={ SignUp }></Route>
+            <Route path='/create/project' component={ CreateProject }></Route>
           </Switch>
         </div>
       </BrowserRouter>
