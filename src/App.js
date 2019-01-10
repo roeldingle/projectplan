@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import NavBar from './components/layout/NavBar';
-import Dashboard from './components/dashboard/Dashboard';
+import Project from './components/dashboard/Project';
 import ViewProject from './components/project/ViewProject';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
@@ -15,7 +15,7 @@ class App extends Component {
         <div className="App">
           <NavBar style={{ marginBottom: '50px'}}/>
           <Switch>
-            <Route exact path='/' component={ Dashboard }></Route>
+            <Route exact path='/project' component={ Project }></Route>
             <Route exact path='/project/:id' component={ ViewProject }></Route>
             <Route path='/signin' component={ SignIn }></Route>
             <Route path='/signup' component={ SignUp }></Route>

@@ -1,9 +1,5 @@
 const initState = {
-  projects: [
-    {id: 1, title: 'Sportsace', description: 'Sports community system'},
-    {id: 2, title: 'Mortimer Apparel', description: 'Equipment and apparels ordering and quotation system'},
-    {id: 3, title: 'Shoot app', description: 'Q&A mobile app'},
-  ]
+  projects: []
 };
 
 const projectReducer = (state = initState, action) => {
