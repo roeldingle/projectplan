@@ -17,7 +17,7 @@ const ViewProject = (props) => {
             <p>{project.description}</p>
           </div>
           <div className="card-action lighten-4 grey-text">
-            <div>Posted by {project.authorFname} {project.authorlname}</div>
+            <div>Posted by {project.authorFname} {project.authorLname}</div>
             <div>December 20, 2018</div>
           </div>
         </div>

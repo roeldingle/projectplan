@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import NavBar from './components/layout/NavBar';
-import Project from './components/dashboard/Project';
+import Project from './components/pages/Project';
 import ViewProject from './components/project/ViewProject';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
