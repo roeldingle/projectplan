@@ -8,7 +8,7 @@ const SummaryProject = ({project}) => {
           {project.title}
           </span>
           <p>Posted by {project.authorFname} {project.authorLname}</p>
-          <p className="grey-text">{project.createdAt ? project.createdAt.nanoseconds : '---'}</p>
+          <p className="grey-text">{project.createdAt ? project.createdAt.toDate().toDateString() +' '+ project.createdAt.toDate().toLocaleTimeString('en-US') : null}</p>
         </div>
       </div>
   )

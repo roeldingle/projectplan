@@ -17,8 +17,8 @@ class App extends Component {
           <NavBar style={{ marginBottom: '50px'}}/>
           <Switch>
             <Route exact path='/' component={ Dashboard }></Route>
-            <Route exact path='/project' component={ Project }></Route>
-            <Route exact path='/project/:id' component={ ViewProject }></Route>
+            <Route exact path='/projects' component={ Project }></Route>
+            <Route exact path='/projects/:id' component={ ViewProject }></Route>
             <Route path='/signin' component={ SignIn }></Route>
             <Route path='/signup' component={ SignUp }></Route>
             <Route path='/create/project' component={ CreateProject }></Route>
