@@ -14,10 +14,13 @@ body {
     min-height: 100%;
 }
 
+.main-content{
+  margin: 0 6%;
+}
 
 form{
-  padding: 20px;
-  margin-top: 60px;
+  padding: 20px 0;
+  width:80%;
 }
 
 form button, form h5{
@@ -29,4 +32,9 @@ form button, form h5{
 }
 .brand-logo{
   float: right;
+}
+
+.header {
+    color: #ee6e73;
+    font-weight: 300;
 }
