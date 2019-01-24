@@ -37,12 +37,11 @@ class CreateProject extends Component{
     if(!auth.uid) return <Redirect to='/signin' />
 
     const links = [
-      {label: 'Back to projects', url: '/projects'}
+      {label: '< Back', url: '/projects'}
     ];
 
     return(
-      <div className="container">
-
+      <div className="main-content">
         <div className="row">
           <h3 className="header">Create Project</h3>
           <div className="col s3">
@@ -59,12 +58,11 @@ class CreateProject extends Component{
                 <textarea className="materialize-textarea" id="description" onChange={this.handleChange}></textarea>
               </div>
               <div className="input-field right-align">
-                <button className="btn pink lighten-1 z-depth-0">Create Project</button>
+                <button className="btn pink lighten-1 z-depth-0">Save</button>
               </div>
             </form>
           </div>
         </div>
-
       </div>
     )
   }

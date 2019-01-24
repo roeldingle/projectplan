@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SideMenu from '../layout/SideMenu';
-import ListProject from '../project/ListProject';
+import ListProject from './ListProject';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
@@ -16,7 +16,7 @@ class Project extends Component{
     if(!auth.uid) return <Redirect to='/signin' />
 
     const links = [
-      {label: 'Create Project', url: '/create/project'},
+      {label: '+ Create', url: '/create/project'},
     ]
 
     return(

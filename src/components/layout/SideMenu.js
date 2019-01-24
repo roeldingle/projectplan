@@ -11,9 +11,9 @@ const SideMenu = (props) => {
   const links = props.links;
   return (
       <div>
-        <ul className="section table-of-contents">
+        <ul className="section">
           {links.map(function(name, index){
-            return <li><Link to={name.url} >{name.label}</Link></li>;
+            return <li><Link to={name.url} className="waves-effect waves-light btn red lighten-2" >{name.label}</Link></li>;
           })}
         </ul>
       </div>

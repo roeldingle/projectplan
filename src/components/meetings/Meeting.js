@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
 import SideMenu from '../layout/SideMenu';
-import ListProject from '../project/ListProject';
+import ListMeeting from '../meetings/ListMeeting';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
-class LevelTen extends Component{
+class Meeting extends Component{
 
   render(){
-    const { projects, auth } = this.props;
+    const { meetings, auth } = this.props;
     /*route protect if not loggedin*/
     if(!auth.uid) return <Redirect to='/signin' />
 
@@ -26,30 +25,29 @@ class LevelTen extends Component{
     // ]
 
     const links = [
-      {label: 'Create Level 10', url: '/create/level-10'},
+      {label: '+ Create', url: '/create/meeting'},
     ]
 
     return(
-      <div className="dashboard main-content">
+      <div className="main-content">
         <div className="row">
-          <h3 className="header">Level 10</h3>
+          <h3 className="header">Meetings</h3>
           <div className="col s3">
             <SideMenu links={links}/>
           </div>
           <div className="col s9">
-            <ListProject projects={projects} />
+            <ListMeeting meetings={meetings} />
           </div>
 
         </div>
       </div>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.firestore.ordered.projects,
+    meetings: state.firestore.ordered.meetings,
     auth: state.firebase.auth
   }
 }
@@ -57,6 +55,6 @@ const mapStateToProps = (state) => {
 export default compose(
  connect(mapStateToProps),
  firestoreConnect([
-   { collection: 'projects', orderBy: ['createdAt','desc'] }
+   { collection: 'meetings', orderBy: ['createdAt','desc'] }
  ])
-)(LevelTen);
+)(Meeting);
