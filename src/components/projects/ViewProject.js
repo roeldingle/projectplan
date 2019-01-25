@@ -54,6 +54,7 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
+  console.log(project);
   return {
     project: project,
     auth: state.firebase.auth

@@ -13,6 +13,7 @@ import ViewMeeting from './components/meetings/ViewMeeting';
 
 import Project from './components/projects/Project';
 import CreateProject from './components/projects/CreateProject';
+import UpdateProject from './components/projects/UpdateProject';
 import ViewProject from './components/projects/ViewProject';
 
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path='/signin' component={ SignIn }></Route>
             <Route path='/signup' component={ SignUp }></Route>
             <Route path='/create/project' component={ CreateProject }></Route>
+            <Route path='/projects/:id/edit' component={ UpdateProject }></Route>
           </Switch>
         </div>
       </BrowserRouter>
