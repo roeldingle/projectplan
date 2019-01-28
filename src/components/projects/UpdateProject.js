@@ -11,35 +11,15 @@ class UpdateProject extends Component{
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
+      id: props.match.params.id,
       title: '',
       description: ''
     };
   }
 
-  componentDidMount() {
-
-    console.log(this.props);
-    // this.setState({
-    //   title: this.props.project.title,
-    //   description: this.props.project.description,
-    // })
-  }
-
-
-  // setData = (project) => {
-  //
-  //   this.setState({
-  //     title: project.title,
-  //     description: project.description,
-  //   });
-  //
-  // }
-
 
   handleChange = (e) => {
-
     this.setState({
       [e.target.id]: e.target.value
     });
@@ -60,8 +40,6 @@ class UpdateProject extends Component{
   render(){
     /*route protect if not loggedin*/
     const { project, auth }  = this.props;
-    const projectId = this.props.match.params.id;
-
 
     if(!auth.uid) return <Redirect to='/signin' />
 
@@ -73,7 +51,6 @@ class UpdateProject extends Component{
 
 
     return(
-
       <div className="main-content">
         <div className="row">
           <h3 className="header">Update Project</h3>
@@ -83,15 +60,13 @@ class UpdateProject extends Component{
           <div className="col s9">
             <form onSubmit={this.handleSubmit} className="white">
               <div className="input-field">
-                <input type="text" id="id" value={projectId} />
+                <input type="text" id="id" value={this.state.id} />
               </div>
               <div className="input-field">
-                <label htmlFor="title">Project Title</label>
-                <input type="text" id="title" value={this.state.title} onChange={this.handleChange} />
+                <input type="text" id="title" defaultValue={project.title} onChange={this.handleChange} />
               </div>
               <div className="input-field">
-                <label htmlFor="description">Description</label>
-                <textarea className="materialize-textarea" id="description" value={project.description} onChange={this.handleChange}></textarea>
+                <textarea className="materialize-textarea" id="description" defaultValue={project.description} onChange={this.handleChange}></textarea>
               </div>
               <div className="input-field right-align">
                 <button className="btn pink lighten-1 z-depth-0">Save</button>
@@ -117,9 +92,13 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
-
   return {
-    project: project,
+    project: {
+      id: id,
+      title: project.title,
+      description: project.description,
+      ...project
+    },
     auth: state.firebase.auth,
   }
 }
