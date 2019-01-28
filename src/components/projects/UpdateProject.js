@@ -28,8 +28,14 @@ class UpdateProject extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.updateProject(this.state);
-    this.props.history.push('/projects');
+    const project = {
+      id: this.state.id,
+      title: (this.state.title) ? this.state.title : this.props.project.title,
+      description: (this.state.description) ? this.state.description : this.props.project.description,
+    }
+
+     this.props.updateProject(project);
+     this.props.history.push('/projects');
   }
 
   backToMain = (e) => {
@@ -60,7 +66,7 @@ class UpdateProject extends Component{
           <div className="col s9">
             <form onSubmit={this.handleSubmit} className="white">
               <div className="input-field">
-                <input type="text" id="id" value={this.state.id} />
+                <input type="hidden" id="id" value={project.id} />
               </div>
               <div className="input-field">
                 <input type="text" id="title" defaultValue={project.title} onChange={this.handleChange} />
@@ -93,12 +99,7 @@ const mapStateToProps = (state, ownProps) => {
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
   return {
-    project: {
-      id: id,
-      title: project.title,
-      description: project.description,
-      ...project
-    },
+    project: project,
     auth: state.firebase.auth,
   }
 }

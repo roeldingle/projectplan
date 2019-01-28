@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import SideMenu from '../layout/SideMenu';
 
 const ViewProject = (props) => {
@@ -34,6 +34,8 @@ const ViewProject = (props) => {
                   <div>Posted by {project.authorFname} {project.authorLname}</div>
                   <div>December 20, 2018</div>
                 </div>
+
+                <Link to={'/projects/' + project.id + '/edit'}>Edit</Link>
               </div>
           </div>
         </div>
