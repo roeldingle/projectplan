@@ -23,6 +23,10 @@ form{
   width:80%;
 }
 
+.card{
+  width:80%;
+}
+
 form button, form h5{
   margin: 20px 0;
 }

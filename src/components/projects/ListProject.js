@@ -12,7 +12,6 @@ const ListProject = ({projects}) => {
             <th>Author</th>
             <th style={{width:'50%'}}>Title</th>
             <th>Date created</th>
-            <th>Action</th>
         </tr>
       </thead>
       <tbody>

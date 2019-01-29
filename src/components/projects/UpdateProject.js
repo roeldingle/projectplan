@@ -38,11 +38,6 @@ class UpdateProject extends Component{
      this.props.history.push('/projects');
   }
 
-  backToMain = (e) => {
-    e.preventDefault();
-    this.props.history.push('/projects');
-  }
-
   render(){
     /*route protect if not loggedin*/
     const { project, auth }  = this.props;
@@ -50,7 +45,7 @@ class UpdateProject extends Component{
     if(!auth.uid) return <Redirect to='/signin' />
 
     const links = [
-      {label: '< Back', url: '/projects'}
+      {label: '< Back', url: '/projects/'+ this.state.id}
     ];
 
     if(project){

@@ -46,11 +46,11 @@ export const deleteProject = (projectId) => {
   return (dispatch, getState, {  getFirebase,getFirestore }) => {
     // make async call to DB
     const firestore = getFirestore();
-
+    
     firestore.collection('projects').doc(projectId)
       .delete()
       .then(() => {
-        dispatch({ type: 'DELETE_PROJECT', projectId });
+        dispatch({ type: 'DELETE_PROJECT' });
       }).catch((err) => {
         dispatch({ type: 'DELETE_PROJECT_ERROR', err });
       })

@@ -16,6 +16,12 @@ const projectReducer = (state = initState, action) => {
         case 'UPDATE_PROJECT_ERROR':
           console.log('update project error', action.error);
           return state;
+        case 'DELETE_PROJECT':
+          console.log('DELETE project');
+          return state;
+        case 'DELETE_PROJECT_ERROR':
+          console.log('DELETE project error', action.error);
+          return state;
     default:
       return state;
   }

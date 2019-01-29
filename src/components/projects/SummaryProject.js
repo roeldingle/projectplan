@@ -9,8 +9,6 @@ const SummaryProject = ({project}) => {
       <td>{project.authorFname} {project.authorLname}</td>
       <td><Link to={'/projects/' + project.id}>{project.title}</Link></td>
       <td>{project.createdAt ? project.createdAt.toDate().toDateString() +' '+ project.createdAt.toDate().toLocaleTimeString('en-US') : null}</td>
-      <td><Link to={'/projects/' + project.id + '/edit'}>Edit</Link></td>
-
     </tr>
 
   )
